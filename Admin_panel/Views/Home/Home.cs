@@ -73,14 +73,29 @@ namespace Admin_panel
 
         }
 
-        private void iconButton2_MouseHover(object sender, EventArgs e)
+
+        private void panelPrincipal_Paint(object sender, PaintEventArgs e)
         {
-            panelInv.Visible = true;
+           
         }
 
-        private void iconButton2_MouseLeave(object sender, EventArgs e)
+        private void ShowMenuInventary(object sender, EventArgs e)
         {
-            panelInv.Visible = false;
+
+            Form parent = this.FindForm();
+
+            MessageBox.Show(parent.Name);
+
+            this.MenuInventary.Location = p;
+
+            if (this.MenuInventary.Visible)
+            {
+                this.MenuInventary.Visible = false;
+                return;
+            }
+            this.MenuInventary.Visible = true;
         }
+
+       
     }
 }
