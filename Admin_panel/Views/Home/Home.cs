@@ -1,25 +1,26 @@
-﻿using System;
+﻿using Admin_panel.Helpers;
+using Admin_panel.Helpers.Functions;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Admin_panel
 {
     public partial class Home : Form
     {
-        public Home()
+        private IHelperF helper;
+        private List<Control> menus = new List<Control>();
+        public Home(IHelperF helperF)
         {
             InitializeComponent();
+            this.helper = helperF;
         }
 
         private void Home_Load(object sender, EventArgs e)
         {
-            
+            this.menus.Add(  this.MenuInventary  );
+            this.menus.Add(  this.MenuInvoice    );
         }
 
         private void btnClosed_Click(object sender, EventArgs e)
@@ -29,9 +30,6 @@ namespace Admin_panel
 
         private void btnMaximize_Click(object sender, EventArgs e)
         {
-
-            CenterTitle();
-
             if (WindowState == FormWindowState.Normal)
             {
                 this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
@@ -42,7 +40,7 @@ namespace Admin_panel
                 this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
                 WindowState = FormWindowState.Normal;
             }
-                
+
         }
 
         private void btnMinimize_Click(object sender, EventArgs e)
@@ -51,16 +49,6 @@ namespace Admin_panel
                 WindowState = FormWindowState.Minimized;
             else if (WindowState == FormWindowState.Maximized)
                 WindowState = FormWindowState.Minimized;
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void CenterTitle()
-        {
-           
         }
 
         private void TxtSearch_Enter(object sender, EventArgs e)
@@ -73,29 +61,21 @@ namespace Admin_panel
 
         }
 
-
-        private void panelPrincipal_Paint(object sender, PaintEventArgs e)
-        {
-           
-        }
-
         private void ShowMenuInventary(object sender, EventArgs e)
         {
-
-            Form parent = this.FindForm();
-
-            MessageBox.Show(parent.Name);
-
-            this.MenuInventary.Location = p;
-
-            if (this.MenuInventary.Visible)
-            {
-                this.MenuInventary.Visible = false;
-                return;
-            }
-            this.MenuInventary.Visible = true;
+            this.helper.GetLocationRelative(this.BtnMenuInventary,this.MenuInventary);
+            this.helper.ShowAndHideControls(this.MenuInventary, sender, this.menus);   
         }
 
-       
+        private void ShowMenuInvoice(object sender, EventArgs e)
+        {
+            this.helper.GetLocationRelative(this.BtnMenuInvoice, this.MenuInvoice);
+            this.helper.ShowAndHideControls(this.MenuInvoice, sender, this.menus);
+        }
+
+        private void Menu_enterprise(object sender, EventArgs e)
+        {
+            this.helper.ShowAndHideControls( null, sender, this.menus );
+        }
     }
 }

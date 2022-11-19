@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Admin_panel.Helpers;
+using Admin_panel.Helpers.Functions;
 using Admin_panel.Views.Login;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Admin_panel
 {
@@ -17,7 +20,21 @@ namespace Admin_panel
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Home());
+
+            var services = new ServiceCollection();
+            Services(services);
+
+            using (var provider = services.BuildServiceProvider())
+            {
+                var form1 = provider.GetRequiredService<Home>();
+                Application.Run(form1);
+            }
+        }
+
+        private static void Services( ServiceCollection service )
+        {
+            service.AddScoped<IHelperF, HelperF>()
+                .AddScoped<Home>();
         }
     }
 }
