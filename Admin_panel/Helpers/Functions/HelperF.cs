@@ -12,6 +12,7 @@ namespace Admin_panel.Helpers
 {
     internal class HelperF : IHelperF
     {
+        private Form formulario = null;
         public HelperF() { }
 
         /**
@@ -23,7 +24,7 @@ namespace Admin_panel.Helpers
             children.Location = new Point()
             {
                 X = referent.Location.X,
-                Y = referent.Location.Y + ( referent.Height *2 )
+                Y = referent.Location.Y + (referent.Height * 2)
             };
         }
 
@@ -32,7 +33,7 @@ namespace Admin_panel.Helpers
          * de lo contrario lo muestra
          * **/
         public void ShowAndHideControls(Control control, object sender, List<Control> menus = null) {
-            if ( control != null )
+            if (control != null)
             {
                 ((Button)sender).Parent.SendToBack();
                 control.BringToFront();
@@ -70,5 +71,22 @@ namespace Admin_panel.Helpers
                 }
             }
         }
+
+        /**
+         * Agregar formulario al panel principal
+         * **/
+        public void OpenForm(Control control, Form form, string titulo)
+        {
+            control.Parent.Controls.Find("lblTituloPag", true)[0].Text = titulo;
+            this.formulario?.Close();
+            this.formulario = form;
+            form.TopLevel = false;
+            form.Dock = DockStyle.Fill;
+            control.Controls.Add(form);
+            control.Tag = form;
+            form.BringToFront();
+            form.Show();
+        }
+    
     }
 }

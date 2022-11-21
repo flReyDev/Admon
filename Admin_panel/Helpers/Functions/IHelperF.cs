@@ -12,5 +12,7 @@ namespace Admin_panel.Helpers.Functions
         void GetLocationRelative(Control referent, Control children);
 
         void ShowAndHideControls(Control control, object sender, List<Control> controls = null);
+
+        void OpenForm( Control panelParent, Form form, string titulo );
     }
 }

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using Admin_panel.Views;
 
 namespace Admin_panel
 {
@@ -21,6 +22,9 @@ namespace Admin_panel
         {
             this.menus.Add(  this.MenuInventary  );
             this.menus.Add(  this.MenuInvoice    );
+
+            this.helper.OpenForm( this.PanelPrincipal, new Dashboard(), "Dashboard" );
+
         }
 
         private void btnClosed_Click(object sender, EventArgs e)

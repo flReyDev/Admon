@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.panelNavBar = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.iconButton8 = new FontAwesome.Sharp.IconButton();
             this.TxtSearch = new System.Windows.Forms.TextBox();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
@@ -61,7 +62,7 @@
             this.iconButton7 = new FontAwesome.Sharp.IconButton();
             this.iconButton17 = new FontAwesome.Sharp.IconButton();
             this.iconButton18 = new FontAwesome.Sharp.IconButton();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.PanelPrincipal = new System.Windows.Forms.Panel();
             this.panelNavBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -89,6 +90,15 @@
             this.panelNavBar.Size = new System.Drawing.Size(1529, 66);
             this.panelNavBar.TabIndex = 2;
             // 
+            // panel3
+            // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.panel3.Location = new System.Drawing.Point(1262, 45);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(240, 3);
+            this.panel3.TabIndex = 9;
+            // 
             // iconButton8
             // 
             this.iconButton8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -103,7 +113,7 @@
             this.iconButton8.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton8.IconSize = 25;
             this.iconButton8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton8.Location = new System.Drawing.Point(1436, 10);
+            this.iconButton8.Location = new System.Drawing.Point(1464, 10);
             this.iconButton8.Name = "iconButton8";
             this.iconButton8.Size = new System.Drawing.Size(35, 37);
             this.iconButton8.TabIndex = 3;
@@ -117,7 +127,7 @@
             this.TxtSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtSearch.Font = new System.Drawing.Font("Decker", 12F);
             this.TxtSearch.ForeColor = System.Drawing.Color.White;
-            this.TxtSearch.Location = new System.Drawing.Point(1234, 15);
+            this.TxtSearch.Location = new System.Drawing.Point(1262, 16);
             this.TxtSearch.MaximumSize = new System.Drawing.Size(200, 35);
             this.TxtSearch.MaxLength = 50;
             this.TxtSearch.MinimumSize = new System.Drawing.Size(200, 35);
@@ -316,10 +326,10 @@
             // lblTituloPag
             // 
             this.lblTituloPag.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblTituloPag.Font = new System.Drawing.Font("Decker", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloPag.Location = new System.Drawing.Point(694, 9);
+            this.lblTituloPag.Font = new System.Drawing.Font("Decker", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTituloPag.Location = new System.Drawing.Point(694, 5);
             this.lblTituloPag.Name = "lblTituloPag";
-            this.lblTituloPag.Size = new System.Drawing.Size(137, 20);
+            this.lblTituloPag.Size = new System.Drawing.Size(137, 31);
             this.lblTituloPag.TabIndex = 2;
             this.lblTituloPag.Text = "Titulo de la pagina";
             this.lblTituloPag.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -630,14 +640,16 @@
             this.iconButton18.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.iconButton18.UseVisualStyleBackColor = true;
             // 
-            // panel3
+            // PanelPrincipal
             // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.panel3.Location = new System.Drawing.Point(1234, 45);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(240, 3);
-            this.panel3.TabIndex = 9;
+            this.PanelPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PanelPrincipal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(34)))), ((int)(((byte)(41)))));
+            this.PanelPrincipal.Location = new System.Drawing.Point(57, 108);
+            this.PanelPrincipal.Name = "PanelPrincipal";
+            this.PanelPrincipal.Size = new System.Drawing.Size(1472, 697);
+            this.PanelPrincipal.TabIndex = 9;
             // 
             // Home
             // 
@@ -650,6 +662,7 @@
             this.Controls.Add(this.MenuInventary);
             this.Controls.Add(this.panelNavBar);
             this.Controls.Add(this.panelNavLeft);
+            this.Controls.Add(this.PanelPrincipal);
             this.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -703,6 +716,7 @@
         private FontAwesome.Sharp.IconButton iconButton17;
         private FontAwesome.Sharp.IconButton iconButton18;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel PanelPrincipal;
     }
 }
 
