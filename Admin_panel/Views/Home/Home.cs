@@ -1,30 +1,33 @@
-﻿using Admin_panel.Helpers;
-using Admin_panel.Helpers.Functions;
+﻿using Admin_panel.Helpers.Functions;
+using Admin_panel.Helpers.Web;
+using Admin_panel.Views;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Windows.Forms;
-using Admin_panel.Views;
 
 namespace Admin_panel
 {
     public partial class Home : Form
     {
         private IHelperF helper;
+        private IHttpHelper httpHelper;
         private List<Control> menus = new List<Control>();
-        public Home(IHelperF helperF)
+        public Home(IHelperF helperF, IHttpHelper httpHelper)
         {
             InitializeComponent();
             this.helper = helperF;
+            this.httpHelper = httpHelper;
         }
 
         private void Home_Load(object sender, EventArgs e)
         {
-            this.menus.Add(  this.MenuInventary  );
-            this.menus.Add(  this.MenuInvoice    );
+            this.menus.Add(this.MenuInventary);
+            this.menus.Add(this.MenuInvoice);
 
-            this.helper.OpenForm( this.PanelPrincipal, new Dashboard(), "Dashboard" );
+            //this.helper.OpenForm(this.PanelPrincipal, new Dashboard(), "Dashboard");
 
+            //string tokenEmpresa = "539f7188dcd0548a987471227005b4a0ba8d1e25";
+            //string tokenPassword = "4f74279b901affaff844b73c09dde5e59bb3e267";
         }
 
         private void btnClosed_Click(object sender, EventArgs e)
@@ -60,15 +63,10 @@ namespace Admin_panel
             TxtSearch.Text = "";
         }
 
-        private void iconButton9_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void ShowMenuInventary(object sender, EventArgs e)
         {
             this.helper.GetLocationRelative(this.BtnMenuInventary,this.MenuInventary);
-            this.helper.ShowAndHideControls(this.MenuInventary, sender, this.menus);   
+            this.helper.ShowAndHideControls(this.MenuInventary, sender, this.menus);
         }
 
         private void ShowMenuInvoice(object sender, EventArgs e)
@@ -79,7 +77,14 @@ namespace Admin_panel
 
         private void Menu_enterprise(object sender, EventArgs e)
         {
-            this.helper.ShowAndHideControls( null, sender, this.menus );
+            this.helper.ShowAndHideControls(null, sender, this.menus);
+        }
+
+        private void ShowConfig(object sender, EventArgs e)
+        {
+            //this.helper.OpenForm(this.PanelPrincipal, new Config(), "Configuración");
         }
     }
+
+
 }

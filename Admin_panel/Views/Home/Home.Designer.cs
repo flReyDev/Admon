@@ -39,11 +39,11 @@
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
             this.BtnEnterprise = new FontAwesome.Sharp.IconButton();
             this.BtnMenuInventary = new FontAwesome.Sharp.IconButton();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lblTituloPag = new System.Windows.Forms.Label();
             this.btnClosed = new System.Windows.Forms.Button();
             this.btnMaximize = new System.Windows.Forms.Button();
             this.btnMinimize = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.lblTituloPag = new System.Windows.Forms.Label();
             this.panelNavLeft = new System.Windows.Forms.Panel();
             this.iconButton11 = new FontAwesome.Sharp.IconButton();
             this.iconButton10 = new FontAwesome.Sharp.IconButton();
@@ -132,7 +132,7 @@
             this.TxtSearch.MaxLength = 50;
             this.TxtSearch.MinimumSize = new System.Drawing.Size(200, 35);
             this.TxtSearch.Name = "TxtSearch";
-            this.TxtSearch.Size = new System.Drawing.Size(200, 35);
+            this.TxtSearch.Size = new System.Drawing.Size(200, 29);
             this.TxtSearch.TabIndex = 4;
             this.TxtSearch.Text = "Buscar...";
             this.TxtSearch.Enter += new System.EventHandler(this.TxtSearch_Enter);
@@ -262,6 +262,29 @@
             this.BtnMenuInventary.UseVisualStyleBackColor = true;
             this.BtnMenuInventary.Click += new System.EventHandler(this.ShowMenuInventary);
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.lblTituloPag);
+            this.panel2.Controls.Add(this.btnClosed);
+            this.panel2.Controls.Add(this.btnMaximize);
+            this.panel2.Controls.Add(this.btnMinimize);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1529, 38);
+            this.panel2.TabIndex = 3;
+            // 
+            // lblTituloPag
+            // 
+            this.lblTituloPag.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTituloPag.Font = new System.Drawing.Font("Decker", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTituloPag.Location = new System.Drawing.Point(694, 5);
+            this.lblTituloPag.Name = "lblTituloPag";
+            this.lblTituloPag.Size = new System.Drawing.Size(137, 31);
+            this.lblTituloPag.TabIndex = 2;
+            this.lblTituloPag.Text = "Titulo de la pagina";
+            this.lblTituloPag.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // btnClosed
             // 
             this.btnClosed.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -311,29 +334,6 @@
             this.btnMinimize.UseVisualStyleBackColor = true;
             this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.lblTituloPag);
-            this.panel2.Controls.Add(this.btnClosed);
-            this.panel2.Controls.Add(this.btnMaximize);
-            this.panel2.Controls.Add(this.btnMinimize);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1529, 38);
-            this.panel2.TabIndex = 3;
-            // 
-            // lblTituloPag
-            // 
-            this.lblTituloPag.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblTituloPag.Font = new System.Drawing.Font("Decker", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloPag.Location = new System.Drawing.Point(694, 5);
-            this.lblTituloPag.Name = "lblTituloPag";
-            this.lblTituloPag.Size = new System.Drawing.Size(137, 31);
-            this.lblTituloPag.TabIndex = 2;
-            this.lblTituloPag.Text = "Titulo de la pagina";
-            this.lblTituloPag.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // panelNavLeft
             // 
             this.panelNavLeft.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -363,7 +363,6 @@
             this.iconButton11.TabIndex = 3;
             this.iconButton11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.iconButton11.UseVisualStyleBackColor = true;
-            this.iconButton11.Click += new System.EventHandler(this.iconButton9_Click);
             // 
             // iconButton10
             // 
@@ -382,7 +381,6 @@
             this.iconButton10.TabIndex = 3;
             this.iconButton10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.iconButton10.UseVisualStyleBackColor = true;
-            this.iconButton10.Click += new System.EventHandler(this.iconButton9_Click);
             // 
             // iconButton9
             // 
@@ -400,7 +398,6 @@
             this.iconButton9.Size = new System.Drawing.Size(48, 41);
             this.iconButton9.TabIndex = 3;
             this.iconButton9.UseVisualStyleBackColor = true;
-            this.iconButton9.Click += new System.EventHandler(this.iconButton9_Click);
             // 
             // MenuInventary
             // 

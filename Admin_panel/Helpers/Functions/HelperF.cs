@@ -78,7 +78,11 @@ namespace Admin_panel.Helpers
         public void OpenForm(Control control, Form form, string titulo)
         {
             control.Parent.Controls.Find("lblTituloPag", true)[0].Text = titulo;
-            this.formulario?.Close();
+
+            if (this.formulario != null)
+            {
+                this.formulario.Close();
+            }
             this.formulario = form;
             form.TopLevel = false;
             form.Dock = DockStyle.Fill;

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Admin_panel.Helpers;
 using Admin_panel.Helpers.Functions;
+using Admin_panel.Helpers.Web;
 using Admin_panel.Views.Login;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -34,6 +35,7 @@ namespace Admin_panel
         private static void Services( ServiceCollection service )
         {
             service.AddScoped<IHelperF, HelperF>()
+                .AddScoped<IHttpHelper, HttpHelper>()
                 .AddScoped<Home>();
         }
     }
