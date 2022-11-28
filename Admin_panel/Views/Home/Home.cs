@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Admin_panel
 {
-    public partial class Home : Form
+    public partial class Home : Form//MetroFramework.Forms.MetroForm
     {
         private IHelperF helper;
         private IHttpHelper httpHelper;
