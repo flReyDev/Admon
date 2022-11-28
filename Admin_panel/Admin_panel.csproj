@@ -103,6 +103,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Config\Configuracion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Config\Configuracion.Designer.cs">
+      <DependentUpon>Configuracion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Dashboard\Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +140,9 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Config\Configuracion.resx">
+      <DependentUpon>Configuracion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Dashboard\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -161,7 +170,6 @@
     <Folder Include="Controller\" />
     <Folder Include="Helpers\Validation\" />
     <Folder Include="Repository\" />
-    <Folder Include="Views\Config\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Fonts\Decker.ttf" />

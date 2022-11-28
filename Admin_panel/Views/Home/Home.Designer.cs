@@ -278,9 +278,9 @@
             // 
             this.lblTituloPag.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTituloPag.Font = new System.Drawing.Font("Decker", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloPag.Location = new System.Drawing.Point(694, 5);
+            this.lblTituloPag.Location = new System.Drawing.Point(618, 4);
             this.lblTituloPag.Name = "lblTituloPag";
-            this.lblTituloPag.Size = new System.Drawing.Size(137, 31);
+            this.lblTituloPag.Size = new System.Drawing.Size(355, 31);
             this.lblTituloPag.TabIndex = 2;
             this.lblTituloPag.Text = "Titulo de la pagina";
             this.lblTituloPag.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -363,6 +363,7 @@
             this.iconButton11.TabIndex = 3;
             this.iconButton11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.iconButton11.UseVisualStyleBackColor = true;
+            this.iconButton11.Click += new System.EventHandler(this.ShowConfig);
             // 
             // iconButton10
             // 

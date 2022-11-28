@@ -1,6 +1,7 @@
 ﻿using Admin_panel.Helpers.Functions;
 using Admin_panel.Helpers.Web;
 using Admin_panel.Views;
+using Admin_panel.Views.Config;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -24,7 +25,7 @@ namespace Admin_panel
             this.menus.Add(this.MenuInventary);
             this.menus.Add(this.MenuInvoice);
 
-            //this.helper.OpenForm(this.PanelPrincipal, new Dashboard(), "Dashboard");
+            this.helper.OpenForm(this.PanelPrincipal, new Dashboard(), "Dashboard");
 
             //string tokenEmpresa = "539f7188dcd0548a987471227005b4a0ba8d1e25";
             //string tokenPassword = "4f74279b901affaff844b73c09dde5e59bb3e267";
@@ -82,7 +83,9 @@ namespace Admin_panel
 
         private void ShowConfig(object sender, EventArgs e)
         {
-            //this.helper.OpenForm(this.PanelPrincipal, new Config(), "Configuración");
+
+            //MessageBox.Show("Configuración");
+            this.helper.OpenForm(this.PanelPrincipal, new Configuracion(), "Configuración");
         }
     }
 
