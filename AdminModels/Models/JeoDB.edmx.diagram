@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5eafa2ffff774cdc9e70d279903f0296" Name="Diagram1" ZoomLevel="68">
+        <EntityTypeShape EntityType="JeoModels.Mandatos" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="JeoModels.PreciosPorPais" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="JeoModels.Productos" Width="3.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="JeoModels.sysdiagrams" Width="1.5" PointX="7.375" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="JeoModels.TipoCodStandar" Width="1.5" PointX="0.75" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="JeoModels.TipoImpuesto" Width="1.5" PointX="0.75" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="JeoModels.TiposProducto" Width="1.5" PointX="0.75" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="JeoModels.TipoTransCarga" Width="1.5" PointX="0.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JeoModels.UnidadesUM" Width="1.5" PointX="0.75" PointY="21.5" IsExpanded="true" />
+        <AssociationConnector Association="JeoModels.FK__Productos__id_ma__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="JeoModels.FK__Productos__id_pr__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="JeoModels.FK__Productos__id_ti__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="JeoModels.FK__Productos__Id_ti__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="JeoModels.FK__Productos__id_ti__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="JeoModels.FK__Productos__id_tr__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="JeoModels.FK__Productos__Id_un__37A5467C" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

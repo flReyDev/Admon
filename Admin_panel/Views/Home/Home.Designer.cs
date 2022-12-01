@@ -146,10 +146,10 @@
             this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.None;
             this.iconPictureBox1.IconColor = System.Drawing.SystemColors.ButtonHighlight;
             this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox1.IconSize = 60;
-            this.iconPictureBox1.Location = new System.Drawing.Point(10, 3);
+            this.iconPictureBox1.IconSize = 45;
+            this.iconPictureBox1.Location = new System.Drawing.Point(11, 11);
             this.iconPictureBox1.Name = "iconPictureBox1";
-            this.iconPictureBox1.Size = new System.Drawing.Size(64, 60);
+            this.iconPictureBox1.Size = new System.Drawing.Size(49, 45);
             this.iconPictureBox1.TabIndex = 3;
             this.iconPictureBox1.TabStop = false;
             // 
@@ -166,7 +166,7 @@
             this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton5.IconSize = 25;
             this.iconButton5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton5.Location = new System.Drawing.Point(599, 11);
+            this.iconButton5.Location = new System.Drawing.Point(587, 11);
             this.iconButton5.Name = "iconButton5";
             this.iconButton5.Size = new System.Drawing.Size(80, 47);
             this.iconButton5.TabIndex = 3;
@@ -188,7 +188,7 @@
             this.BtnMenuInvoice.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnMenuInvoice.IconSize = 25;
             this.BtnMenuInvoice.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnMenuInvoice.Location = new System.Drawing.Point(215, 11);
+            this.BtnMenuInvoice.Location = new System.Drawing.Point(202, 11);
             this.BtnMenuInvoice.Name = "BtnMenuInvoice";
             this.BtnMenuInvoice.Size = new System.Drawing.Size(127, 47);
             this.BtnMenuInvoice.TabIndex = 3;
@@ -210,7 +210,7 @@
             this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton3.IconSize = 25;
             this.iconButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton3.Location = new System.Drawing.Point(472, 11);
+            this.iconButton3.Location = new System.Drawing.Point(462, 11);
             this.iconButton3.Name = "iconButton3";
             this.iconButton3.Size = new System.Drawing.Size(116, 47);
             this.iconButton3.TabIndex = 3;
@@ -231,7 +231,7 @@
             this.BtnEnterprise.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnEnterprise.IconSize = 25;
             this.BtnEnterprise.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnEnterprise.Location = new System.Drawing.Point(353, 11);
+            this.BtnEnterprise.Location = new System.Drawing.Point(339, 11);
             this.BtnEnterprise.Name = "BtnEnterprise";
             this.BtnEnterprise.Size = new System.Drawing.Size(108, 47);
             this.BtnEnterprise.TabIndex = 3;
@@ -253,7 +253,7 @@
             this.BtnMenuInventary.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnMenuInventary.IconSize = 25;
             this.BtnMenuInventary.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnMenuInventary.Location = new System.Drawing.Point(95, 11);
+            this.BtnMenuInventary.Location = new System.Drawing.Point(77, 11);
             this.BtnMenuInventary.Name = "BtnMenuInventary";
             this.BtnMenuInventary.Size = new System.Drawing.Size(109, 47);
             this.BtnMenuInventary.TabIndex = 3;
@@ -336,19 +336,19 @@
             // 
             // panelNavLeft
             // 
-            this.panelNavLeft.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.panelNavLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(46)))), ((int)(((byte)(54)))));
             this.panelNavLeft.Controls.Add(this.iconButton11);
             this.panelNavLeft.Controls.Add(this.iconButton10);
             this.panelNavLeft.Controls.Add(this.iconButton9);
-            this.panelNavLeft.Location = new System.Drawing.Point(0, 106);
+            this.panelNavLeft.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelNavLeft.Location = new System.Drawing.Point(0, 757);
             this.panelNavLeft.Name = "panelNavLeft";
-            this.panelNavLeft.Size = new System.Drawing.Size(54, 699);
+            this.panelNavLeft.Size = new System.Drawing.Size(1529, 51);
             this.panelNavLeft.TabIndex = 4;
             // 
             // iconButton11
             // 
-            this.iconButton11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.iconButton11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.iconButton11.FlatAppearance.BorderSize = 0;
             this.iconButton11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
@@ -357,7 +357,7 @@
             this.iconButton11.IconColor = System.Drawing.Color.White;
             this.iconButton11.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton11.IconSize = 30;
-            this.iconButton11.Location = new System.Drawing.Point(3, 555);
+            this.iconButton11.Location = new System.Drawing.Point(1381, 6);
             this.iconButton11.Name = "iconButton11";
             this.iconButton11.Size = new System.Drawing.Size(48, 41);
             this.iconButton11.TabIndex = 3;
@@ -367,7 +367,7 @@
             // 
             // iconButton10
             // 
-            this.iconButton10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.iconButton10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.iconButton10.FlatAppearance.BorderSize = 0;
             this.iconButton10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
@@ -376,7 +376,7 @@
             this.iconButton10.IconColor = System.Drawing.Color.White;
             this.iconButton10.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton10.IconSize = 30;
-            this.iconButton10.Location = new System.Drawing.Point(3, 602);
+            this.iconButton10.Location = new System.Drawing.Point(1429, 6);
             this.iconButton10.Name = "iconButton10";
             this.iconButton10.Size = new System.Drawing.Size(48, 41);
             this.iconButton10.TabIndex = 3;
@@ -385,7 +385,7 @@
             // 
             // iconButton9
             // 
-            this.iconButton9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.iconButton9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.iconButton9.FlatAppearance.BorderSize = 0;
             this.iconButton9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
@@ -394,7 +394,7 @@
             this.iconButton9.IconColor = System.Drawing.Color.White;
             this.iconButton9.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton9.IconSize = 30;
-            this.iconButton9.Location = new System.Drawing.Point(3, 649);
+            this.iconButton9.Location = new System.Drawing.Point(1477, 6);
             this.iconButton9.Name = "iconButton9";
             this.iconButton9.Size = new System.Drawing.Size(48, 41);
             this.iconButton9.TabIndex = 3;
@@ -442,6 +442,7 @@
             this.iconButton16.Text = "Productos";
             this.iconButton16.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.iconButton16.UseVisualStyleBackColor = true;
+            this.iconButton16.Click += new System.EventHandler(this.ProductosClic);
             // 
             // iconButton15
             // 
@@ -644,9 +645,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.PanelPrincipal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(34)))), ((int)(((byte)(41)))));
-            this.PanelPrincipal.Location = new System.Drawing.Point(57, 108);
+            this.PanelPrincipal.Location = new System.Drawing.Point(0, 108);
             this.PanelPrincipal.Name = "PanelPrincipal";
-            this.PanelPrincipal.Size = new System.Drawing.Size(1472, 697);
+            this.PanelPrincipal.Size = new System.Drawing.Size(1529, 649);
             this.PanelPrincipal.TabIndex = 9;
             // 
             // Home

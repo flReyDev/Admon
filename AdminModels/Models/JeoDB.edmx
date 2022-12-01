@@ -1,0 +1,626 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="JeoModels.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Mandatos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="numero_identity" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="tipo_ingreso" Type="nchar" MaxLength="50" />
+          <Property Name="created_at" Type="datetime" Nullable="false" />
+          <Property Name="updated_at" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PreciosPorPais">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pais" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion" Type="nchar" MaxLength="50" />
+          <Property Name="created_at" Type="datetime" Nullable="false" />
+          <Property Name="updated_at" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Productos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_tipo" Type="int" />
+          <Property Name="Code" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Id_tipo_code_standar" Type="int" />
+          <Property Name="Id_unidad_medida" Type="int" />
+          <Property Name="Precio_unitario" Type="float" Nullable="false" />
+          <Property Name="id_tipo_impuesto" Type="int" />
+          <Property Name="Marca" Type="varchar" MaxLength="50" />
+          <Property Name="Modelo" Type="varchar" MaxLength="50" />
+          <Property Name="Cantidad_por_paquete" Type="int" />
+          <Property Name="Cantidad_real" Type="int" Nullable="false" />
+          <Property Name="id_mandato" Type="int" />
+          <Property Name="id_transporte_carga" Type="int" />
+          <Property Name="id_precio_pais" Type="int" />
+          <Property Name="Comentarios" Type="varchar" MaxLength="100" />
+          <Property Name="Created_at" Type="datetime" Nullable="false" />
+          <Property Name="Updated_at" Type="datetime" Nullable="false" />
+          <Property Name="Is_active" Type="bit" Nullable="false" />
+          <Property Name="Expiration_date" Type="date" />
+          <Property Name="Max_stock" Type="float" />
+          <Property Name="ubicacion" Type="nchar" MaxLength="50" />
+          <Property Name="inventary" Type="bigint" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TipoCodStandar">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="created_at" Type="datetime" />
+          <Property Name="updated_at" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TipoImpuesto">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="nchar" MaxLength="50" />
+          <Property Name="porcentaje" Type="float" Nullable="false" />
+          <Property Name="created_at" Type="datetime" Nullable="false" />
+          <Property Name="updated_at" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TiposProducto">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="nchar" MaxLength="50" />
+          <Property Name="created_at" Type="datetime" Nullable="false" />
+          <Property Name="updated_at" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipoTransCarga">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="nchar" MaxLength="50" />
+          <Property Name="created_at" Type="datetime" Nullable="false" />
+          <Property Name="updated_at" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UnidadesUM">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="nchar" MaxLength="100" />
+          <Property Name="codigo" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="created_at" Type="datetime" />
+          <Property Name="updated_at" Type="datetime" />
+        </EntityType>
+        <Association Name="FK__Productos__id_ma__398D8EEE">
+          <End Role="Mandatos" Type="Self.Mandatos" Multiplicity="0..1" />
+          <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mandatos">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Productos">
+              <PropertyRef Name="id_mandato" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Productos__id_pr__3B75D760">
+          <End Role="PreciosPorPais" Type="Self.PreciosPorPais" Multiplicity="0..1" />
+          <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PreciosPorPais">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Productos">
+              <PropertyRef Name="id_precio_pais" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Productos__id_ti__35BCFE0A">
+          <End Role="TiposProducto" Type="Self.TiposProducto" Multiplicity="0..1" />
+          <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TiposProducto">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Productos">
+              <PropertyRef Name="id_tipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Productos__Id_ti__36B12243">
+          <End Role="TipoCodStandar" Type="Self.TipoCodStandar" Multiplicity="0..1" />
+          <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoCodStandar">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Productos">
+              <PropertyRef Name="Id_tipo_code_standar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Productos__id_ti__38996AB5">
+          <End Role="TipoImpuesto" Type="Self.TipoImpuesto" Multiplicity="0..1" />
+          <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoImpuesto">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Productos">
+              <PropertyRef Name="id_tipo_impuesto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Productos__id_tr__3A81B327">
+          <End Role="TipoTransCarga" Type="Self.TipoTransCarga" Multiplicity="0..1" />
+          <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoTransCarga">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Productos">
+              <PropertyRef Name="id_transporte_carga" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Productos__Id_un__37A5467C">
+          <End Role="UnidadesUM" Type="Self.UnidadesUM" Multiplicity="0..1" />
+          <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UnidadesUM">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Productos">
+              <PropertyRef Name="Id_unidad_medida" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="JeoModelsStoreContainer">
+          <EntitySet Name="Mandatos" EntityType="Self.Mandatos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PreciosPorPais" EntityType="Self.PreciosPorPais" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Productos" EntityType="Self.Productos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoCodStandar" EntityType="Self.TipoCodStandar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoImpuesto" EntityType="Self.TipoImpuesto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TiposProducto" EntityType="Self.TiposProducto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoTransCarga" EntityType="Self.TipoTransCarga" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UnidadesUM" EntityType="Self.UnidadesUM" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Productos__id_ma__398D8EEE" Association="Self.FK__Productos__id_ma__398D8EEE">
+            <End Role="Mandatos" EntitySet="Mandatos" />
+            <End Role="Productos" EntitySet="Productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Productos__id_pr__3B75D760" Association="Self.FK__Productos__id_pr__3B75D760">
+            <End Role="PreciosPorPais" EntitySet="PreciosPorPais" />
+            <End Role="Productos" EntitySet="Productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Productos__id_ti__35BCFE0A" Association="Self.FK__Productos__id_ti__35BCFE0A">
+            <End Role="TiposProducto" EntitySet="TiposProducto" />
+            <End Role="Productos" EntitySet="Productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Productos__Id_ti__36B12243" Association="Self.FK__Productos__Id_ti__36B12243">
+            <End Role="TipoCodStandar" EntitySet="TipoCodStandar" />
+            <End Role="Productos" EntitySet="Productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Productos__id_ti__38996AB5" Association="Self.FK__Productos__id_ti__38996AB5">
+            <End Role="TipoImpuesto" EntitySet="TipoImpuesto" />
+            <End Role="Productos" EntitySet="Productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Productos__id_tr__3A81B327" Association="Self.FK__Productos__id_tr__3A81B327">
+            <End Role="TipoTransCarga" EntitySet="TipoTransCarga" />
+            <End Role="Productos" EntitySet="Productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Productos__Id_un__37A5467C" Association="Self.FK__Productos__Id_un__37A5467C">
+            <End Role="UnidadesUM" EntitySet="UnidadesUM" />
+            <End Role="Productos" EntitySet="Productos" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="JeoModels" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Mandatos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="numero_identity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tipo_ingreso" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="created_at" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="updated_at" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Productos" Relationship="Self.FK__Productos__id_ma__398D8EEE" FromRole="Mandatos" ToRole="Productos" />
+        </EntityType>
+        <EntityType Name="PreciosPorPais">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pais" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="created_at" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="updated_at" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Productos" Relationship="Self.FK__Productos__id_pr__3B75D760" FromRole="PreciosPorPais" ToRole="Productos" />
+        </EntityType>
+        <EntityType Name="Productos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_tipo" Type="Int32" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Id_tipo_code_standar" Type="Int32" />
+          <Property Name="Id_unidad_medida" Type="Int32" />
+          <Property Name="Precio_unitario" Type="Double" Nullable="false" />
+          <Property Name="id_tipo_impuesto" Type="Int32" />
+          <Property Name="Marca" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Modelo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Cantidad_por_paquete" Type="Int32" />
+          <Property Name="Cantidad_real" Type="Int32" Nullable="false" />
+          <Property Name="id_mandato" Type="Int32" />
+          <Property Name="id_transporte_carga" Type="Int32" />
+          <Property Name="id_precio_pais" Type="Int32" />
+          <Property Name="Comentarios" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Created_at" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Updated_at" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Is_active" Type="Boolean" Nullable="false" />
+          <Property Name="Expiration_date" Type="DateTime" Precision="0" />
+          <Property Name="Max_stock" Type="Double" />
+          <Property Name="ubicacion" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="inventary" Type="Int64" />
+          <NavigationProperty Name="Mandatos" Relationship="Self.FK__Productos__id_ma__398D8EEE" FromRole="Productos" ToRole="Mandatos" />
+          <NavigationProperty Name="PreciosPorPais" Relationship="Self.FK__Productos__id_pr__3B75D760" FromRole="Productos" ToRole="PreciosPorPais" />
+          <NavigationProperty Name="TiposProducto" Relationship="Self.FK__Productos__id_ti__35BCFE0A" FromRole="Productos" ToRole="TiposProducto" />
+          <NavigationProperty Name="TipoCodStandar" Relationship="Self.FK__Productos__Id_ti__36B12243" FromRole="Productos" ToRole="TipoCodStandar" />
+          <NavigationProperty Name="TipoImpuesto" Relationship="Self.FK__Productos__id_ti__38996AB5" FromRole="Productos" ToRole="TipoImpuesto" />
+          <NavigationProperty Name="TipoTransCarga" Relationship="Self.FK__Productos__id_tr__3A81B327" FromRole="Productos" ToRole="TipoTransCarga" />
+          <NavigationProperty Name="UnidadesUM" Relationship="Self.FK__Productos__Id_un__37A5467C" FromRole="Productos" ToRole="UnidadesUM" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TipoCodStandar">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="created_at" Type="DateTime" Precision="3" />
+          <Property Name="updated_at" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Productos" Relationship="Self.FK__Productos__Id_ti__36B12243" FromRole="TipoCodStandar" ToRole="Productos" />
+        </EntityType>
+        <EntityType Name="TipoImpuesto">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="porcentaje" Type="Double" Nullable="false" />
+          <Property Name="created_at" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="updated_at" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Productos" Relationship="Self.FK__Productos__id_ti__38996AB5" FromRole="TipoImpuesto" ToRole="Productos" />
+        </EntityType>
+        <EntityType Name="TiposProducto">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="created_at" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="updated_at" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Productos" Relationship="Self.FK__Productos__id_ti__35BCFE0A" FromRole="TiposProducto" ToRole="Productos" />
+        </EntityType>
+        <EntityType Name="TipoTransCarga">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="created_at" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="updated_at" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Productos" Relationship="Self.FK__Productos__id_tr__3A81B327" FromRole="TipoTransCarga" ToRole="Productos" />
+        </EntityType>
+        <EntityType Name="UnidadesUM">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="codigo" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="created_at" Type="DateTime" Precision="3" />
+          <Property Name="updated_at" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Productos" Relationship="Self.FK__Productos__Id_un__37A5467C" FromRole="UnidadesUM" ToRole="Productos" />
+        </EntityType>
+        <Association Name="FK__Productos__id_ma__398D8EEE">
+          <End Role="Mandatos" Type="Self.Mandatos" Multiplicity="0..1" />
+          <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mandatos">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Productos">
+              <PropertyRef Name="id_mandato" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Productos__id_pr__3B75D760">
+          <End Role="PreciosPorPais" Type="Self.PreciosPorPais" Multiplicity="0..1" />
+          <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PreciosPorPais">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Productos">
+              <PropertyRef Name="id_precio_pais" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Productos__id_ti__35BCFE0A">
+          <End Role="TiposProducto" Type="Self.TiposProducto" Multiplicity="0..1" />
+          <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TiposProducto">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Productos">
+              <PropertyRef Name="id_tipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Productos__Id_ti__36B12243">
+          <End Role="TipoCodStandar" Type="Self.TipoCodStandar" Multiplicity="0..1" />
+          <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoCodStandar">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Productos">
+              <PropertyRef Name="Id_tipo_code_standar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Productos__id_ti__38996AB5">
+          <End Role="TipoImpuesto" Type="Self.TipoImpuesto" Multiplicity="0..1" />
+          <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoImpuesto">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Productos">
+              <PropertyRef Name="id_tipo_impuesto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Productos__id_tr__3A81B327">
+          <End Role="TipoTransCarga" Type="Self.TipoTransCarga" Multiplicity="0..1" />
+          <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoTransCarga">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Productos">
+              <PropertyRef Name="id_transporte_carga" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Productos__Id_un__37A5467C">
+          <End Role="UnidadesUM" Type="Self.UnidadesUM" Multiplicity="0..1" />
+          <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UnidadesUM">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Productos">
+              <PropertyRef Name="Id_unidad_medida" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="JeoSystemsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Mandatos" EntityType="Self.Mandatos" />
+          <EntitySet Name="PreciosPorPais" EntityType="Self.PreciosPorPais" />
+          <EntitySet Name="Productos" EntityType="Self.Productos" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="TipoCodStandar" EntityType="Self.TipoCodStandar" />
+          <EntitySet Name="TipoImpuesto" EntityType="Self.TipoImpuesto" />
+          <EntitySet Name="TiposProducto" EntityType="Self.TiposProducto" />
+          <EntitySet Name="TipoTransCarga" EntityType="Self.TipoTransCarga" />
+          <EntitySet Name="UnidadesUM" EntityType="Self.UnidadesUM" />
+          <AssociationSet Name="FK__Productos__id_ma__398D8EEE" Association="Self.FK__Productos__id_ma__398D8EEE">
+            <End Role="Mandatos" EntitySet="Mandatos" />
+            <End Role="Productos" EntitySet="Productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Productos__id_pr__3B75D760" Association="Self.FK__Productos__id_pr__3B75D760">
+            <End Role="PreciosPorPais" EntitySet="PreciosPorPais" />
+            <End Role="Productos" EntitySet="Productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Productos__id_ti__35BCFE0A" Association="Self.FK__Productos__id_ti__35BCFE0A">
+            <End Role="TiposProducto" EntitySet="TiposProducto" />
+            <End Role="Productos" EntitySet="Productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Productos__Id_ti__36B12243" Association="Self.FK__Productos__Id_ti__36B12243">
+            <End Role="TipoCodStandar" EntitySet="TipoCodStandar" />
+            <End Role="Productos" EntitySet="Productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Productos__id_ti__38996AB5" Association="Self.FK__Productos__id_ti__38996AB5">
+            <End Role="TipoImpuesto" EntitySet="TipoImpuesto" />
+            <End Role="Productos" EntitySet="Productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Productos__id_tr__3A81B327" Association="Self.FK__Productos__id_tr__3A81B327">
+            <End Role="TipoTransCarga" EntitySet="TipoTransCarga" />
+            <End Role="Productos" EntitySet="Productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Productos__Id_un__37A5467C" Association="Self.FK__Productos__Id_un__37A5467C">
+            <End Role="UnidadesUM" EntitySet="UnidadesUM" />
+            <End Role="Productos" EntitySet="Productos" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="JeoModelsStoreContainer" CdmEntityContainer="JeoSystemsEntities">
+          <EntitySetMapping Name="Mandatos">
+            <EntityTypeMapping TypeName="JeoModels.Mandatos">
+              <MappingFragment StoreEntitySet="Mandatos">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="numero_identity" ColumnName="numero_identity" />
+                <ScalarProperty Name="tipo_ingreso" ColumnName="tipo_ingreso" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PreciosPorPais">
+            <EntityTypeMapping TypeName="JeoModels.PreciosPorPais">
+              <MappingFragment StoreEntitySet="PreciosPorPais">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="pais" ColumnName="pais" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Productos">
+            <EntityTypeMapping TypeName="JeoModels.Productos">
+              <MappingFragment StoreEntitySet="Productos">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="id_tipo" ColumnName="id_tipo" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Id_tipo_code_standar" ColumnName="Id_tipo_code_standar" />
+                <ScalarProperty Name="Id_unidad_medida" ColumnName="Id_unidad_medida" />
+                <ScalarProperty Name="Precio_unitario" ColumnName="Precio_unitario" />
+                <ScalarProperty Name="id_tipo_impuesto" ColumnName="id_tipo_impuesto" />
+                <ScalarProperty Name="Marca" ColumnName="Marca" />
+                <ScalarProperty Name="Modelo" ColumnName="Modelo" />
+                <ScalarProperty Name="Cantidad_por_paquete" ColumnName="Cantidad_por_paquete" />
+                <ScalarProperty Name="Cantidad_real" ColumnName="Cantidad_real" />
+                <ScalarProperty Name="id_mandato" ColumnName="id_mandato" />
+                <ScalarProperty Name="id_transporte_carga" ColumnName="id_transporte_carga" />
+                <ScalarProperty Name="id_precio_pais" ColumnName="id_precio_pais" />
+                <ScalarProperty Name="Comentarios" ColumnName="Comentarios" />
+                <ScalarProperty Name="Created_at" ColumnName="Created_at" />
+                <ScalarProperty Name="Updated_at" ColumnName="Updated_at" />
+                <ScalarProperty Name="Is_active" ColumnName="Is_active" />
+                <ScalarProperty Name="Expiration_date" ColumnName="Expiration_date" />
+                <ScalarProperty Name="Max_stock" ColumnName="Max_stock" />
+                <ScalarProperty Name="ubicacion" ColumnName="ubicacion" />
+                <ScalarProperty Name="inventary" ColumnName="inventary" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="JeoModels.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoCodStandar">
+            <EntityTypeMapping TypeName="JeoModels.TipoCodStandar">
+              <MappingFragment StoreEntitySet="TipoCodStandar">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoImpuesto">
+            <EntityTypeMapping TypeName="JeoModels.TipoImpuesto">
+              <MappingFragment StoreEntitySet="TipoImpuesto">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="porcentaje" ColumnName="porcentaje" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TiposProducto">
+            <EntityTypeMapping TypeName="JeoModels.TiposProducto">
+              <MappingFragment StoreEntitySet="TiposProducto">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoTransCarga">
+            <EntityTypeMapping TypeName="JeoModels.TipoTransCarga">
+              <MappingFragment StoreEntitySet="TipoTransCarga">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UnidadesUM">
+            <EntityTypeMapping TypeName="JeoModels.UnidadesUM">
+              <MappingFragment StoreEntitySet="UnidadesUM">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

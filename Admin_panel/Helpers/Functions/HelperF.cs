@@ -10,15 +10,20 @@ using System.Windows.Forms;
 
 namespace Admin_panel.Helpers
 {
+    /// <summary>
+    /// Clase de utilidades, para entorno grafico, Menus, cambio de titulos etc...
+    /// </summary>
     internal class HelperF : IHelperF
     {
         private Form formulario = null;
         public HelperF() { }
 
-        /**
-         * Metodo que permite establecer el posicionamiento del menu desplegable
-         * en base al Control que lo acciona permitiendo establecerce bajo su posición
-         * **/
+        /// <summary>
+        /// Metodo que permite establecer el posicionamiento del menu desplegable 
+        /// en base al Control que lo acciona permitiendo establecerce bajo su posición
+        /// </summary>
+        /// <param name="referent"></param>
+        /// <param name="children"></param>
         public void GetLocationRelative(Control referent, Control children)
         {
             children.Location = new Point()
@@ -28,10 +33,13 @@ namespace Admin_panel.Helpers
             };
         }
 
-        /**
-         * Metodo que permite validar si un menu esta visible, de estarlo lo oculta
-         * de lo contrario lo muestra
-         * **/
+       /// <summary>
+       /// Metodo que permite validar si un menu el visible
+       /// de estar visible lo oculta
+       /// </summary>
+       /// <param name="control"></param>
+       /// <param name="sender"></param>
+       /// <param name="menus"></param>
         public void ShowAndHideControls(Control control, object sender, List<Control> menus = null) {
             if (control != null)
             {
@@ -47,10 +55,12 @@ namespace Admin_panel.Helpers
             IvalidateMenus(control, menus);
         }
 
-        /**
-         * Permite validar si un boton no tiene menu y estan abiertos menus de otros
-         * botones lo cierra.
-         * **/
+        /// <summary>
+        /// Metodo que permite validar si un boton tiene abierto su menu
+        /// de ser asi lo cierra
+        /// </summary>
+        /// <param name="control"></param>
+        /// <param name="menus"></param>
         public void IvalidateMenus(Control control, List<Control> menus = null)
         {
             if (control == null && menus.Count() > 0)
@@ -72,17 +82,17 @@ namespace Admin_panel.Helpers
             }
         }
 
-        /**
-         * Agregar formulario al panel principal
-         * **/
+        /// <summary>
+        /// Metodo que agrega un formulario al panel principal
+        /// </summary>
+        /// <param name="control"></param>
+        /// <param name="form"></param>
+        /// <param name="titulo"></param>
         public void OpenForm(Control control, Form form, string titulo)
         {
             control.Parent.Controls.Find("lblTituloPag", true)[0].Text = titulo;
 
-            if (this.formulario != null)
-            {
-                this.formulario.Close();
-            }
+            this.formulario?.Close();
             this.formulario = form;
             form.TopLevel = false;
             form.Dock = DockStyle.Fill;

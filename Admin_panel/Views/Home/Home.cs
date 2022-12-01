@@ -2,6 +2,7 @@
 using Admin_panel.Helpers.Web;
 using Admin_panel.Views;
 using Admin_panel.Views.Config;
+using Admin_panel.Views.Productos;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -10,9 +11,9 @@ namespace Admin_panel
 {
     public partial class Home : Form
     {
-        private IHelperF helper;
-        private IHttpHelper httpHelper;
-        private List<Control> menus = new List<Control>();
+        private readonly IHelperF helper;
+        private readonly IHttpHelper httpHelper;
+        private readonly List<Control> menus = new List<Control>();
         public Home(IHelperF helperF, IHttpHelper httpHelper)
         {
             InitializeComponent();
@@ -86,6 +87,12 @@ namespace Admin_panel
 
             //MessageBox.Show("Configuración");
             this.helper.OpenForm(this.PanelPrincipal, new Configuracion(), "Configuración");
+        }
+
+        private void ProductosClic(object sender, EventArgs e)
+        {
+            //ver los productos
+            this.helper.OpenForm(this.PanelPrincipal, new Productos(), "Agregar Productos");
         }
     }
 

@@ -16,5 +16,24 @@ namespace Admin_panel.Views.Productos
         {
             InitializeComponent();
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void AgregarProducto(object sender, EventArgs e)
+        {
+
+
+
+
+
+        }
     }
 }
